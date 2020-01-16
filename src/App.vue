@@ -3,11 +3,10 @@
     <el-container>
       <el-header>
         <div class="logo">
-          <img src="./assets/img/toplogo.png" alt />
+          <img src="./assets/img/new/top-left.jpg" />
         </div>
         <el-menu
           :default-active="defaultActive"
-          class="el-menu-demo"
           mode="horizontal"
           @select="handleSelect"
           :router="router"
@@ -23,7 +22,7 @@
       <el-main>
         <router-view />
       </el-main>
-      <div class="footer" v-show="isShow">
+      <div class="footer">
         <div class="footer-content">
           <ul class="content-nav">
             <li>
@@ -55,7 +54,7 @@
           <img src="./assets/img/ercode.png" alt />
         </div>
         <div class="copyright">
-          <span>科建版权所有</span>
+          <span>版权所有：中国地质大学（武汉） 教学与学习支持服务部：027-67883579</span>
         </div>
       </div>
     </el-container>
@@ -98,29 +97,57 @@ body {
 }
 
 .el-header {
+  height: 85px !important;
   display: flex;
   justify-content: space-between;
-  align-content: center;
-  width: 1240px;
+  align-content: stretch;
+  width: 100%;
   margin: 0 auto;
-  //background-color: #fff;
+  background-image: url("./assets/img/new/top-bg.jpg");
 
   .logo {
-    width: 280px;
-    padding: 10px;
+    position: relative !important;
+    left: 0 !important;
+    width: 380px;
     img {
       width: 100%;
-      line-height: 60px;
+      height: 100%;
     }
   }
 }
+
+.el-menu {
+  background-color: transparent !important;
+}
+
+.el-menu--horizontal {
+  border: solid 0px transparent !important;
+  background: transparent !important;
+}
+
+.el-menu-item {
+  align-content: center;
+  padding: 10px 20px 10px 20px !important;
+  background: transparent !important;
+  font-size: 1rem !important;
+  color: #555555 !important;
+}
+
+.el-menu--horizontal>.el-menu-item.is-active {
+    border-bottom: 2px solid #409EFF !important;
+    color: #000000 !important;
+    font-size: 1.2rem !important;
+}
+
 .el-main {
   padding: 0 !important;
 }
 
 .footer {
   width: 100%;
-  height: 216px;
+  height: auto;
+  // position: fixed;
+  bottom: 0px;
   overflow: hidden;
   background-color: #14679f;
   &-content {
@@ -157,11 +184,18 @@ body {
     }
   }
   .copyright {
-    height: 30px;
+    height: 40px;
     background: #125688;
+    // background-image: url("./assets/img/new/foot.jpg");
+    background-color: #14679f;
+    align-content: center;
     span {
       color: #fff;
+      padding-top: 10px;
       line-height: 30px;
+      text-align: center;
+      display: block;
+      position: relative;
     }
   }
 }
